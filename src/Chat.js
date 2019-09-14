@@ -6,7 +6,7 @@ const URL = 'ws://st-chat.shas.tel'
 
 class Chat extends Component {
   state = {
-    name: 'Bob',
+    name: '',
     messages: [],
   }
 
