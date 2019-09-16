@@ -5,14 +5,10 @@ import ChatMessage from './ChatMessage'
 const URL = 'wss://wssproxy.herokuapp.com/'
 
 class Chat extends Component {
-  // state = {
-  //   name: 'BM',
-  //   messages: [],
-  // }
-  this.setState(state => ({ 
-    name 'BM',
-    messages: []
-  }))
+  state = {
+    name: 'BM',
+    messages: [],
+  }
 
   ws = new WebSocket(URL)
 
