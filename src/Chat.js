@@ -23,8 +23,6 @@ class Chat extends Component {
       // on receiving a message, add it to the list of messages
       const message = JSON.parse(evt.data)
       this.addMessage(message)
-      let targetscroll = document.querySelector(".scrollerTo")
-      targetscroll.scrollIntoView()
     }
 
     this.ws.onclose = () => {
@@ -37,7 +35,7 @@ class Chat extends Component {
   }
 
   addMessage = message =>
-    this.setState(state => ({ messages: state.messages.concat(message) }))
+    this.setState(state => ({ messages: message.concat(state.messages) }))
 
   submitMessage = messageString => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
