@@ -4,9 +4,11 @@ import ChatMessage from './ChatMessage'
 
 const URL = 'wss://wssproxy.herokuapp.com/'
 
+let localName = (localStorage.getItem('name')) ? localStorage.getItem('name') : 'Anonymous';
+
 class Chat extends Component {
   state = {
-    name: 'BM',
+    name: localName,
     messages: [],
   }
 
@@ -67,7 +69,8 @@ class Chat extends Component {
               id={'name'}
               placeholder={'Enter your name...'}
               value={this.state.name}
-              onChange={e => this.setState({ name: e.target.value })}
+              onChange={e => {  localStorage.setItem('name', e.target.value);
+                this.setState({ name: e.target.value });}}
             />
           </label>
           <ChatInput
